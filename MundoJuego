@@ -1,0 +1,25 @@
+import greenfoot.*;
+
+public class MundoJuego extends World {
+    private int contador = 0;
+
+    public MundoJuego() {
+        super(800, 600, 1);
+        addObject(new Superheroe(), 100, getHeight() / 2);
+        setfondoEscalado();
+    }
+    private void setfondoEscalado(){
+    GreenfootImage fondo = new GreenfootImage("Ciudad.jpg");
+        fondo.scale(getWidth(), getHeight());
+        setBackground(fondo);
+    }
+
+    public void act() {
+        contador++;
+        if (contador > 100) {
+            int y = Greenfoot.getRandomNumber(getHeight());
+            addObject(new Drone(), getWidth(), y);
+            contador = 0;
+        }
+    }
+}
