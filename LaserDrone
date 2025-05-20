@@ -1,0 +1,20 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+
+public class LaserDrone extends Actor {
+    public void act() {
+        
+        Actor heroe = getOneIntersectingObject(Superheroe.class);
+        if (heroe != null) {
+            Greenfoot.stop(); 
+            getWorld().removeObject(this);
+            return; 
+        }
+
+        
+        move(-7);
+        if (isAtEdge()) {
+            getWorld().removeObject(this);
+        }
+    }
+}
